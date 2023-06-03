@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  infranexus:
+    container_name: FritzRebooter
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      FRITZ_IP_ADDRESS: ''
+      FRITZ_USERNAME: ''
+      FRITZ_PASSWORD: ''
+    ports:
+      - 80:80
+    volumes:
+      - /var/log:/var/log
